@@ -16,12 +16,12 @@ class SnakeTranslatorSpec extends Specification {
     }
     
     "ignore a starting capital letter" >> {
-      /*
-       * Implement this functionality.
-       */
-      pending
+      //ensures that it's not converted with a leading '_' when the string starts with a capital letter
+
+      val a = "CamelToSnakeTranslation"
+      val b =  "camel_to_snake_translation"
+
+      SnakeTranslator.translate(a) == b
     }
   }
-  
-  
 }
