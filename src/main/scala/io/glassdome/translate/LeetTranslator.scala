@@ -12,7 +12,7 @@ object LeetTranslator extends Translator {
     'H' -> '#')
 
   def translate(s: String, mapping: Map[String, String] = Map()) = {
-    val m = mapping map { case (k, v) => (k.head -> v.head) }
+    val m = mapping map { case (k, v) => (k.head.toUpper -> v.head) }
     toLeet(s, m)
   }
 
@@ -21,5 +21,5 @@ object LeetTranslator extends Translator {
     s.map(c => charMap.get(c.toUpper).fold(c)(x => x)).toString
 
   private[translate] def toLeet(s: String, customMap: Map[Char, Char] = Map.empty): String =
-    charReplacer(s, standardMapping ++ customMap)    
+    charReplacer(s, standardMapping ++ customMap)
 }
